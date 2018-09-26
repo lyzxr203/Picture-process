@@ -1,3 +1,5 @@
+#  获取图片集目录，取四分之一做验证图片，其他为训练图片
+
 import os
 
 def get_train_val(val_rate = 0.25):                          #参数可改val_rate = 0.25
