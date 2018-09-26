@@ -1,0 +1,20 @@
+import os
+
+def get_train_val(val_rate = 0.25):                          #参数可改val_rate = 0.25
+    train_url = []                                           #列表
+    train_set = []
+    val_set  = []  
+    for pic in os.listdir(filepath + 'src'):
+        train_url.append(pic)                                #加入列表 ['TestPicture (1).jpeg', 'TestPicture (1).jpg', 'TestPicture (10).jpg', 'TestPicture (11).jpg', 'TestPicture (12).jpg', 'TestPicture (13).jpg', 'TestPicture (14).jpg', 'TestPicture (15).jpg', 'TestPicture (2).jpg', 'TestPicture (3).jpg', 'TestPicture (4).jpg', 'TestPicture (5).jpg', 'TestPicture (6).jpg', 'TestPicture (7).jpg', 'TestPicture (8).jpg', 'TestPicture (9).jpg']
+
+    total_num = len(train_url)                               #反回列表中图片的张数，也就是长度
+    val_num = int(val_rate * total_num)                      #长度除以四
+    for i in range(len(train_url)):                          
+        if i < val_num:
+            val_set.append(train_url[i]) 
+        else:
+            train_set.append(train_url[i])
+    return train_set,val_set     
+   
+if __name__=='__main__':  
+train_set,val_set = get_train_val()
